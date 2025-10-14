@@ -7,10 +7,13 @@ export default function PainSection() {
   return (
     <section className="py-32 bg-gradient-to-b from-black to-neutral-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6">
@@ -34,12 +37,16 @@ export default function PainSection() {
               A Onebrain utiliza inteligência artificial e metodologia especializada para
               recrutar os talentos mais adequados para sua equipe.
             </p>
-            <a
+
+            {/* botão com hover animado via Framer Motion */}
+            <motion.a
               href="#contact"
-             className="inline-block px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 hover:scale-105 transition-all duration-300 ease-out font-medium"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90"
             >
               Descubra como a IA pode transformar sua contratação
-            </a>
+            </motion.a>
           </motion.div>
 
           <motion.div
