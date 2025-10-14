@@ -72,11 +72,12 @@ export default function PainSection() {
                     scale: [1, 1.05, 1],
                   }}
                   transition={{
-                    duration: 2.8,
+                    times: [0, 0.5, 1],
+                    duration: 3.5,
                     repeat: Infinity,
-                    repeatDelay: 1.5,
-                    delay: index * 0.8, // 🔄 anima de forma intercalada
-                    ease: 'easeInOut',
+                    repeatDelay: 1.2,
+                    delay: index * 0.8, // 🔄 intercalado entre os cards
+                    ease: ['easeInOut', 'easeInOut', 'easeInOut'], // ✅ suaviza ida e volta
                   }}
                   className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm transition-transform hover:scale-105"
                 >
