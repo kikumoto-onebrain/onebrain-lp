@@ -51,7 +51,7 @@ export default function PainSection() {
             </motion.a>
           </motion.div>
 
-          {/* cards animados automaticamente */}
+          {/* cards com animação automática e sutil */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -68,19 +68,17 @@ export default function PainSection() {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 1 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
                   animate={{
                     scale: [1, 1.05, 1],
                   }}
                   transition={{
-                    duration: 2.5,
+                    duration: 2.8,
                     repeat: Infinity,
-                    delay: index * 0.6, // 🔄 intercalado
+                    repeatDelay: 1.5,
+                    delay: index * 0.8, // 🔄 anima de forma intercalada
                     ease: 'easeInOut',
                   }}
-                  className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:scale-105 transition-transform"
+                  className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm transition-transform hover:scale-105"
                 >
                   <item.icon className="w-12 h-12 text-white/80 mb-4" />
                   <p className="text-white font-medium">{item.label}</p>
