@@ -6,15 +6,17 @@ import { useEffect, useRef } from 'react';
 export default function ClientsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // 🧩 lista de clientes com logos
   const clients = [
-    'iFood',
-    'Petz',
-    'Nomad',
-    'Empresa A',
-    'Empresa B',
-    'Empresa C',
+    { name: 'iFood', logo: '/logos/ifood.svg' },
+    { name: 'Nomad', logo: '/logos/nomad.svg' },
+    { name: 'Gringo', logo: '/logos/gringo.svg' },
+    { name: 'Petz', logo: '/logos/petz.svg' },
+    { name: 'Sympla', logo: '/logos/sympla.svg' },
+    { name: 'PicPay', logo: '/logos/picpay.svg' },
   ];
 
+  // 🎞️ rolagem automática suave
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -34,9 +36,10 @@ export default function ClientsSection() {
 
   return (
     <section id="clients" className="py-24 bg-black relative overflow-hidden">
+      {/* gradiente lateral */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
 
-      {/* título 100% branco */}
+      {/* título */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,21 +47,14 @@ export default function ClientsSection() {
         transition={{ duration: 0.6 }}
         className="container mx-auto px-6 text-center mb-16"
       >
-        <h2
-          className="text-4xl md:text-5xl font-semibold mb-4"
-          style={{
-            color: 'white',
-            background: 'none',
-            WebkitBackgroundClip: 'unset',
-            WebkitTextFillColor: 'white',
-          }}
-        >
+        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
           Somos o cérebro por trás das grandes
           <br />
           transformações digitais
         </h2>
       </motion.div>
 
+      {/* carrossel de logos */}
       <div
         ref={scrollRef}
         className="flex gap-16 overflow-hidden whitespace-nowrap"
@@ -70,13 +66,16 @@ export default function ClientsSection() {
             className="inline-flex items-center justify-center min-w-[200px] h-24 px-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-2xl font-semibold text-white/80 hover:text-white transition-colors">
-              {client}
-            </span>
+            <img
+              src={client.logo}
+              alt={client.name}
+              className="h-10 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+            />
           </motion.div>
         ))}
       </div>
 
+      {/* botão */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
