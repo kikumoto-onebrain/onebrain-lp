@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function ClientsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // 🧩 lista de clientes com logos reais
+  // 🧩 lista de clientes com logos reais (certifique-se de que estão em /public)
   const clients = [
     { name: 'iFood', logo: '/ifood.svg' },
     { name: 'Nomad', logo: '/nomad.svg' },
@@ -88,7 +88,7 @@ export default function ClientsSection() {
           href="#contact"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="inline-block px-8 py-4 border-2 border-white/20 text-white rounded-full hover:border-white/40 hover:bg-white/5 transition-all font-medium flex items-center justify-center"
+          className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/20 text-white rounded-full hover:border-white/40 hover:bg-white/5 transition-all font-medium"
         >
           Fale com um especialista
         </motion.a>
