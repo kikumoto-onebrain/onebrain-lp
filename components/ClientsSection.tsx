@@ -2,19 +2,22 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function ClientsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // 🧩 lista de clientes com logos reais
   const clients = [
-    'iFood',
-    'Petz',
-    'Nomad',
-    'Empresa A',
-    'Empresa B',
-    'Empresa C',
+    { name: 'iFood', logo: '/ifood.svg' },
+    { name: 'Nomad', logo: '/nomad.svg' },
+    { name: 'Gringo', logo: '/gringo.svg' },
+    { name: 'Petz', logo: '/petz.svg' },
+    { name: 'Sympla', logo: '/sympla.svg' },
+    { name: 'PicPay', logo: '/picpay.svg' },
   ];
 
+  // 🎞️ rolagem automática
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -22,9 +25,7 @@ export default function ClientsSection() {
     let scrollAmount = 0;
     const scroll = () => {
       scrollAmount += 1;
-      if (scrollAmount >= scrollContainer.scrollWidth / 2) {
-        scrollAmount = 0;
-      }
+      if (scrollAmount >= scrollContainer.scrollWidth / 2) scrollAmount = 0;
       scrollContainer.scrollLeft = scrollAmount;
     };
 
@@ -34,8 +35,10 @@ export default function ClientsSection() {
 
   return (
     <section id="clients" className="py-24 bg-black relative overflow-hidden">
+      {/* gradiente lateral */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
 
+      {/* título */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -50,24 +53,30 @@ export default function ClientsSection() {
         </h2>
       </motion.div>
 
+      {/* carrossel de logos */}
       <div
         ref={scrollRef}
         className="flex gap-16 overflow-hidden whitespace-nowrap"
         style={{ scrollBehavior: 'auto' }}
       >
-        {[...clients, ...clients, ...clients].map((client, index) => (
+        {[...clients, ...clients].map((client, index) => (
           <motion.div
             key={index}
             className="inline-flex items-center justify-center min-w-[200px] h-24 px-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-2xl font-semibold text-white/80 hover:text-white transition-colors">
-              {client}
-            </span>
+            <Image
+              src={client.logo}
+              alt={client.name}
+              width={140}
+              height={60}
+              className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
           </motion.div>
         ))}
       </div>
 
+      {/* botão */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,12 +84,14 @@ export default function ClientsSection() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="container mx-auto px-6 text-center mt-16"
       >
-        <a
+        <motion.a
           href="#contact"
-          className="inline-block px-8 py-4 border-2 border-white/20 text-white rounded-full hover:border-white/40 hover:bg-white/5 transition-all font-medium"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-block px-8 py-4 border-2 border-white/20 text-white rounded-full hover:border-white/40 hover:bg-white/5 transition-all font-medium flex items-center justify-center"
         >
           Fale com um especialista
-        </a>
+        </motion.a>
       </motion.div>
     </section>
   );
