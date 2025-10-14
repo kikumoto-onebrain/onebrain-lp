@@ -38,7 +38,7 @@ export default function ClientsSection() {
       {/* gradiente lateral */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
 
-      {/* título */}
+      {/* título totalmente branco */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,15 @@ export default function ClientsSection() {
         transition={{ duration: 0.6 }}
         className="container mx-auto px-6 text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
+        <h2
+          className="text-4xl md:text-5xl font-semibold mb-4"
+          style={{
+            color: '#fff',
+            background: 'none',
+            WebkitBackgroundClip: 'unset',
+            WebkitTextFillColor: '#fff',
+          }}
+        >
           Somos o cérebro por trás das grandes
           <br />
           transformações digitais
@@ -76,7 +84,7 @@ export default function ClientsSection() {
         ))}
       </div>
 
-      {/* botão */}
+      {/* botão centralizado com hover */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
