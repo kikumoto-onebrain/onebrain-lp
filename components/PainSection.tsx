@@ -38,15 +38,13 @@ export default function PainSection() {
               recrutar os talentos mais adequados para sua equipe.
             </p>
 
-            {/* botão com hover animado via Framer Motion */}
-            <motion.a
+            {/* botão com hover igual ao da hero (via Tailwind) */}
+            <a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90"
+              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium transition-transform duration-300 ease-out hover:scale-105 hover:bg-white/90"
             >
               Descubra como a IA pode transformar sua contratação
-            </motion.a>
+            </a>
           </motion.div>
 
           <motion.div
@@ -79,14 +77,8 @@ export default function PainSection() {
             </div>
 
             <motion.div
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/5 rounded-full"
             />
           </motion.div>
