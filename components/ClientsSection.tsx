@@ -36,6 +36,7 @@ export default function ClientsSection() {
     <section id="clients" className="py-24 bg-black relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
 
+      {/* título 100% branco */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +44,15 @@ export default function ClientsSection() {
         transition={{ duration: 0.6 }}
         className="container mx-auto px-6 text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
+        <h2
+          className="text-4xl md:text-5xl font-semibold mb-4"
+          style={{
+            color: 'white',
+            background: 'none',
+            WebkitBackgroundClip: 'unset',
+            WebkitTextFillColor: 'white',
+          }}
+        >
           Somos o cérebro por trás das grandes
           <br />
           transformações digitais
