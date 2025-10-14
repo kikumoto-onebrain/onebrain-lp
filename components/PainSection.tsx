@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import { AlertCircle, TrendingUp, Users, ClockAlert } from 'lucide-react';
 
+// Função personalizada para um easing suave tipo “sine”
+const easeInOutSine = (x: number) => -(Math.cos(Math.PI * x) - 1) / 2;
+
 export default function PainSection() {
   return (
     <section className="py-32 bg-gradient-to-b from-black to-neutral-900 relative overflow-hidden">
@@ -51,7 +54,7 @@ export default function PainSection() {
             </motion.a>
           </motion.div>
 
-          {/* cards com animação automática, sutil e orgânica */}
+          {/* cards com animação automática e orgânica */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -76,8 +79,8 @@ export default function PainSection() {
                     duration: 3.8,
                     repeat: Infinity,
                     repeatDelay: 1.2,
-                    delay: index * 0.8, // 🔄 intercalado
-                    ease: ['easeInOutSine', 'easeInOutSine', 'easeInOutSine'], // 🌿 suavização orgânica
+                    delay: index * 0.8,
+                    ease: easeInOutSine,
                   }}
                   className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm transition-transform hover:scale-105"
                 >
