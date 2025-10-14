@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function ClientsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // 🧩 lista de clientes com logos reais (certifique-se de que estão em /public)
+  // 🧩 lista de clientes com logos reais (certifique-se de que os SVGs estão em /public)
   const clients = [
     { name: 'iFood', logo: '/ifood.svg' },
     { name: 'Nomad', logo: '/nomad.svg' },
@@ -17,7 +17,7 @@ export default function ClientsSection() {
     { name: 'PicPay', logo: '/picpay.svg' },
   ];
 
-  // 🎞️ rolagem automática
+  // 🎞️ rolagem automática do carrossel
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
@@ -35,10 +35,10 @@ export default function ClientsSection() {
 
   return (
     <section id="clients" className="py-24 bg-black relative overflow-hidden">
-      {/* gradiente lateral */}
+      {/* gradiente lateral para dar fade no carrossel */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-10 pointer-events-none" />
 
-      {/* título totalmente branco */}
+      {/* título 100% branco, sem gradiente */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,10 +49,13 @@ export default function ClientsSection() {
         <h2
           className="text-4xl md:text-5xl font-semibold mb-4"
           style={{
-            color: '#fff',
+            color: 'white',
             background: 'none',
             WebkitBackgroundClip: 'unset',
-            WebkitTextFillColor: '#fff',
+            WebkitTextFillColor: 'white',
+            filter: 'none',
+            opacity: 1,
+            textShadow: '0 0 0 white',
           }}
         >
           Somos o cérebro por trás das grandes
@@ -84,7 +87,7 @@ export default function ClientsSection() {
         ))}
       </div>
 
-      {/* botão centralizado com hover */}
+      {/* botão CTA */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
