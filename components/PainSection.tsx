@@ -51,7 +51,7 @@ export default function PainSection() {
             </motion.a>
           </motion.div>
 
-          {/* cards com animação automática e sutil */}
+          {/* cards com animação automática, sutil e orgânica */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -73,11 +73,11 @@ export default function PainSection() {
                   }}
                   transition={{
                     times: [0, 0.5, 1],
-                    duration: 3.5,
+                    duration: 3.8,
                     repeat: Infinity,
                     repeatDelay: 1.2,
-                    delay: index * 0.8, // 🔄 intercalado entre os cards
-                    ease: ['easeInOut', 'easeInOut', 'easeInOut'], // ✅ suaviza ida e volta
+                    delay: index * 0.8, // 🔄 intercalado
+                    ease: ['easeInOutSine', 'easeInOutSine', 'easeInOutSine'], // 🌿 suavização orgânica
                   }}
                   className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm transition-transform hover:scale-105"
                 >
