@@ -22,7 +22,7 @@ export default function PainSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6">
-              Contratar bons profissionais nunca foi tão desafiador.
+              Contratar bons profissionais nunca foi tão desafiador
             </h2>
             <p className="text-lg text-white/70 mb-6 leading-relaxed font-light">
               O mercado de tecnologia enfrenta alta demanda e escassez de talentos.
@@ -35,8 +35,8 @@ export default function PainSection() {
               recrutar os talentos mais adequados para sua equipe.
             </p>
             <a
-              href="#solution"
-              className="inline-block px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
+              href="#contact"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
             >
               Descubra como a IA pode transformar sua contratação
             </a>
