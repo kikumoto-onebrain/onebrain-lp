@@ -7,17 +7,19 @@ import { ArrowRight } from 'lucide-react';
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // desenha as linhas de conexão
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrameId: number;
+
     const points = Array.from({ length: 50 }).map(() => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       vx: (Math.random() - 0.5) * 0.4,
       vy: (Math.random() - 0.5) * 0.4,
+      brightness: Math.random(),
+      pulseSpeed: 0.005 + Math.random() * 0.005,
     }));
 
     const draw = () => {
@@ -25,14 +27,20 @@ export default function HeroSection() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // atualizar posição e desenhar pontos
-      ctx.fillStyle = 'rgba(255,255,255,0.7)';
       points.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        // pulsação de brilho
+        p.brightness += p.pulseSpeed;
+        if (p.brightness > 1 || p.brightness < 0) p.pulseSpeed *= -1;
+
+        const size = 2.5 + Math.random() * 1.5; // pontos maiores
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.2, 0, 2 * Math.PI);
+        ctx.arc(p.x, p.y, size, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(255,255,255,${0.5 + 0.5 * Math.sin(p.brightness * Math.PI)})`;
         ctx.fill();
       });
 
@@ -42,10 +50,10 @@ export default function HeroSection() {
           const dx = points[i].x - points[j].x;
           const dy = points[i].y - points[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            const alpha = 1 - dist / 120;
-            ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.3})`;
-            ctx.lineWidth = 0.5;
+          if (dist < 160) { // distância maior para mais conexões
+            const alpha = 1 - dist / 160;
+            ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.6})`; // linhas mais fortes
+            ctx.lineWidth = 1.2;
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
             ctx.lineTo(points[j].x, points[j].y);
@@ -74,12 +82,9 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* fundo com gradiente e canvas de rede */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black">
-        {/* canvas das conexões */}
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 opacity-30"
-        />
+        <canvas ref={canvasRef} className="absolute inset-0 opacity-40" />
       </div>
 
       {/* conteúdo principal */}
