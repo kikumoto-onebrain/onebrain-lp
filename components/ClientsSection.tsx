@@ -6,32 +6,32 @@ import { useEffect, useRef } from 'react';
 export default function ClientsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // 🧩 lista de clientes com logos
   const clients = [
-    { name: 'iFood', logo: '/logos/ifood.svg' },
-    { name: 'Nomad', logo: '/logos/nomad.svg' },
-    { name: 'Gringo', logo: '/logos/gringo.svg' },
-    { name: 'Petz', logo: '/logos/petz.svg' },
-    { name: 'Sympla', logo: '/logos/sympla.svg' },
-    { name: 'PicPay', logo: '/logos/picpay.svg' },
+    { name: 'iFood', logo: '/ifood.svg' },
+    { name: 'Nomad', logo: '/nomad.svg' },
+    { name: 'Gringo', logo: '/gringo.svg' },
+    { name: 'Petz', logo: '/petz.svg' },
+    { name: 'Sympla', logo: '/sympla.svg' },
+    { name: 'PicPay', logo: '/picpay.svg' },
   ];
 
-  // 🎞️ rolagem automática suave
+  // 🌀 rolagem infinita suave, sem duplicar no modo dev
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
-    let scrollAmount = 0;
-    const scroll = () => {
-      scrollAmount += 1;
-      if (scrollAmount >= scrollContainer.scrollWidth / 2) {
-        scrollAmount = 0;
-      }
-      scrollContainer.scrollLeft = scrollAmount;
+    let scroll = 0;
+    let frameId: number;
+
+    const animate = () => {
+      scroll += 0.5;
+      if (scroll >= container.scrollWidth / 2) scroll = 0;
+      container.scrollLeft = scroll;
+      frameId = requestAnimationFrame(animate);
     };
 
-    const interval = setInterval(scroll, 30);
-    return () => clearInterval(interval);
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   return (
@@ -60,16 +60,18 @@ export default function ClientsSection() {
         className="flex gap-16 overflow-hidden whitespace-nowrap"
         style={{ scrollBehavior: 'auto' }}
       >
-        {[...clients, ...clients, ...clients].map((client, index) => (
+        {[...clients, ...clients].map((client, index) => (
           <motion.div
             key={index}
-            className="inline-flex items-center justify-center min-w-[200px] h-24 px-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all"
+            className="inline-flex items-center justify-center min-w-[200px] h-24 px-8 
+                       border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm 
+                       hover:bg-white/10 transition-all"
             whileHover={{ scale: 1.05 }}
           >
             <img
               src={client.logo}
               alt={client.name}
-              className="h-10 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              className="h-10 object-contain opacity-90 hover:opacity-100 transition-opacity"
             />
           </motion.div>
         ))}
@@ -85,7 +87,8 @@ export default function ClientsSection() {
       >
         <a
           href="#contact"
-          className="inline-block px-8 py-4 border-2 border-white/20 text-white rounded-full hover:border-white/40 hover:bg-white/5 transition-all font-medium"
+          className="inline-block px-8 py-4 border-2 border-white/20 text-white rounded-full 
+                     hover:border-white/40 hover:bg-white/5 transition-all font-medium"
         >
           Fale com um especialista
         </a>
