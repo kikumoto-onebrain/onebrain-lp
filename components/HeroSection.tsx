@@ -26,7 +26,6 @@ export default function HeroSection() {
       if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // desenhar pontos
       points.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -43,7 +42,6 @@ export default function HeroSection() {
         ctx.fill();
       });
 
-      // desenhar linhas entre pontos próximos
       for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
           const dx = points[i].x - points[j].x;
@@ -81,12 +79,12 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* fundo com gradiente e canvas de rede */}
+      {/* fundo com gradiente e canvas */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black">
         <canvas ref={canvasRef} className="absolute inset-0 opacity-40" />
       </div>
 
-      {/* conteúdo principal */}
+      {/* conteúdo */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -96,9 +94,7 @@ export default function HeroSection() {
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-6 leading-tight">
             A inteligência por trás
             <br />
-            <span className="bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-              das grandes equipes de tecnologia
-            </span>
+            das grandes equipes de tecnologia
           </h1>
         </motion.div>
 
@@ -128,7 +124,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* scroll indicator */}
+      {/* indicador de scroll */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
