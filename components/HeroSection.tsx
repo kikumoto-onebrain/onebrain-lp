@@ -94,13 +94,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-6 leading-tight">
-            A inteligência que conecta
+            A inteligência por trás
             <br />
             <span className="bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-              empresas aos melhores talentos
+              das grandes equipes de tecnologia
             </span>
-            <br />
-            de tecnologia.
           </h1>
         </motion.div>
 
