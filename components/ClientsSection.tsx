@@ -49,13 +49,13 @@ export default function ClientsSection() {
         <h2
           className="text-4xl md:text-5xl font-semibold mb-4"
           style={{
-            color: 'white',
-            background: 'none',
-            WebkitBackgroundClip: 'unset',
-            WebkitTextFillColor: 'white',
-            filter: 'none',
-            opacity: 1,
-            textShadow: '0 0 0 white',
+            all: 'unset',
+            display: 'block',
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            fontWeight: 600,
+            lineHeight: 1.2,
+            color: '#ffffff',
+            textAlign: 'center',
           }}
         >
           Somos o cérebro por trás das grandes
