@@ -36,7 +36,7 @@ export default function PainSection() {
             </p>
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
+             className="inline-block px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 hover:scale-105 transition-all duration-300 ease-out font-medium"
             >
               Descubra como a IA pode transformar sua contratação
             </a>
