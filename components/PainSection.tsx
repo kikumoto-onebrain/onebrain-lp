@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { AlertCircle, TrendingUp, Users } from 'lucide-react';
+import { AlertCircle, TrendingUp, Users, ClockAlert } from 'lucide-react';
 
 export default function PainSection() {
   return (
@@ -61,7 +61,7 @@ export default function PainSection() {
                 { icon: AlertCircle, label: 'Escassez de talentos' },
                 { icon: TrendingUp, label: 'Custos elevados' },
                 { icon: Users, label: 'Alto turnover' },
-                { icon: AlertCircle, label: 'Processos lentos' },
+                { icon: ClockAlert, label: 'Processos lentos' },
               ].map((item, index) => (
                 <motion.div
                   key={index}
