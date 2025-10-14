@@ -6,6 +6,7 @@ import { AlertCircle, TrendingUp, Users, ClockAlert } from 'lucide-react';
 export default function PainSection() {
   return (
     <section className="py-32 bg-gradient-to-b from-black to-neutral-900 relative overflow-hidden">
+      {/* textura de fundo */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         <div
           className="absolute inset-0"
@@ -18,6 +19,7 @@ export default function PainSection() {
 
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* texto */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -38,7 +40,7 @@ export default function PainSection() {
               recrutar os talentos mais adequados para sua equipe.
             </p>
 
-            {/* botão com hover */}
+            {/* botão */}
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.02 }}
@@ -49,6 +51,7 @@ export default function PainSection() {
             </motion.a>
           </motion.div>
 
+          {/* cards animados */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -68,9 +71,17 @@ export default function PainSection() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:border-white/20 transition-all"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    borderColor: ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.3)', 'rgba(255,255,255,0.1)'],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.5, // 🔥 intercalado entre os cards
+                    ease: 'easeInOut',
+                  }}
+                  className="p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm transition-all"
                 >
                   <item.icon className="w-12 h-12 text-white/80 mb-4" />
                   <p className="text-white font-medium">{item.label}</p>
@@ -78,6 +89,7 @@ export default function PainSection() {
               ))}
             </div>
 
+            {/* círculo giratório */}
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
