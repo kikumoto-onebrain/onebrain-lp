@@ -35,10 +35,7 @@ export default function ClientsSection() {
 
   return (
     <section id="clients" className="py-24 bg-black relative overflow-hidden">
-      {/* gradiente lateral rebaixado */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-0 pointer-events-none" />
-
-      {/* conteúdo acima do gradiente */}
+      {/* conteúdo principal */}
       <div className="relative z-10">
         {/* título 100% branco */}
         <motion.div
@@ -63,27 +60,32 @@ export default function ClientsSection() {
           </h2>
         </motion.div>
 
-        {/* carrossel de logos */}
-        <div
-          ref={scrollRef}
-          className="flex gap-16 overflow-hidden whitespace-nowrap"
-          style={{ scrollBehavior: 'auto' }}
-        >
-          {[...clients, ...clients].map((client, index) => (
-            <motion.div
-              key={index}
-              className="inline-flex items-center justify-center min-w-[200px] h-24 px-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={140}
-                height={60}
-                className="object-contain opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </motion.div>
-          ))}
+        {/* carrossel de logos com gradiente apenas nas bordas */}
+        <div className="relative">
+          {/* gradiente lateral (agora SÓ aqui!) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-0 pointer-events-none" />
+
+          <div
+            ref={scrollRef}
+            className="flex gap-16 overflow-hidden whitespace-nowrap relative z-10"
+            style={{ scrollBehavior: 'auto' }}
+          >
+            {[...clients, ...clients].map((client, index) => (
+              <motion.div
+                key={index}
+                className="inline-flex items-center justify-center min-w-[200px] h-24 px-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all"
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={140}
+                  height={60}
+                  className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* botão CTA */}
