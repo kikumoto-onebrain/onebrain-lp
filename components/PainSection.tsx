@@ -6,7 +6,7 @@ import { AlertCircle, TrendingUp, Users } from 'lucide-react';
 export default function PainSection() {
   return (
     <section className="py-32 bg-gradient-to-b from-black to-neutral-900 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 pointer-events-none opacity-5">
         <div
           className="absolute inset-0"
           style={{
