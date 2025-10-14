@@ -34,11 +34,11 @@ export default function Header() {
         </a>
 
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#solution" className="text-white/80 hover:text-white transition-colors">
-            Solução
-          </a>
           <a href="#clients" className="text-white/80 hover:text-white transition-colors">
             Clientes
+          </a>
+          <a href="#solution" className="text-white/80 hover:text-white transition-colors">
+            Solução
           </a>
           <a href="#cases" className="text-white/80 hover:text-white transition-colors">
             Cases
