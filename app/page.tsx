@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <PainSection />
-      <SolutionSection />
       <ClientsSection />
+      <SolutionSection />
       <CasesSection />
       <BenefitsSection />
       <ContactSection />
