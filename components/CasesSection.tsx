@@ -15,7 +15,7 @@ export default function CasesSection() {
     {
       company: 'Petz',
       description:
-        'Transformamos o e-commerce em uma experiência diferenciada',
+        'Com IA e integração total, levamos o e-commerce da Petz a um novo patamar de experiência digital',
       image: '/case-petz.webp',
       link: 'https://onebrain.com.br/cases/petz/',
     },
