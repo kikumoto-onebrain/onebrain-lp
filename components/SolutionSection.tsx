@@ -9,7 +9,7 @@ export default function SolutionSection() {
       id="solution"
       className="py-32 bg-neutral-900 relative overflow-hidden"
     >
-      {/* 🔧 fundo animado — pointer-events desativado */}
+      {/* 🔧 fundo animado */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -59,27 +59,27 @@ export default function SolutionSection() {
                 <Brain className="w-24 h-24 text-white" />
               </div>
 
-              {/* 🔁 3 bolinhas orbitando continuamente */}
-              {[0, 120, 240].map((startAngle, i) => (
+              {/* 🔁 3 bolinhas orbitando continuamente e já iniciando defasadas */}
+              {[0, 120, 240].map((angle, i) => (
                 <motion.div
                   key={i}
                   className="absolute w-4 h-4 bg-white rounded-full"
-                  style={{ top: '50%', left: '50%' }}
-                  animate={{
-                    rotate: [0, 360],
+                  style={{
+                    top: '50%',
+                    left: '50%',
+                    transformOrigin: 'center',
+                    rotate: `${angle}deg`,
                   }}
+                  animate={{ rotate: [`${angle}deg`, `${360 + angle}deg`] }}
                   transition={{
                     duration: 6,
                     repeat: Infinity,
                     ease: 'linear',
-                    delay: i * 2,
                   }}
                 >
                   <div
                     className="absolute w-4 h-4 bg-white rounded-full"
-                    style={{
-                      transform: `translateX(150px) rotate(${startAngle}deg)`,
-                    }}
+                    style={{ transform: 'translateX(150px)' }}
                   />
                 </motion.div>
               ))}
