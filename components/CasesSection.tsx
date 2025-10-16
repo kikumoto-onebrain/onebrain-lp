@@ -9,22 +9,28 @@ export default function CasesSection() {
       company: 'iFood',
       description:
         'O maior app de delivery do Brasil conta com as soluções da Onebrain desde o 1º dia',
+      image: '/case-ifood.webp',
+      link: 'https://onebrain.com.br/cases/ifood/',
     },
     {
       company: 'Petz',
       description:
         'Transformamos o e-commerce em uma experiência diferenciada',
+      image: '/case-petz.webp',
+      link: 'https://onebrain.com.br/cases/petz/',
     },
     {
       company: 'Nomad',
       description:
         'Vencemos os desafios de prazo para entregar um app impecável a uma empresa moderna e internacional',
+      image: '/case-nomad.webp',
+      link: 'https://onebrain.com.br/cases/nomad/',
     },
   ];
 
   return (
     <section id="cases" className="py-32 bg-black relative overflow-hidden">
-      {/* 🧩 fundo quadriculado sutil (agora sem interferir no hover/click) */}
+      {/* 🧩 fundo quadriculado sutil (sem interferir no hover/click) */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -52,30 +58,40 @@ export default function CasesSection() {
         {/* cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {cases.map((item, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="group relative p-8 border border-white/10 rounded-2xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm hover:border-white/20 transition-all overflow-hidden"
+              className="group relative p-8 border border-white/10 rounded-2xl bg-cover bg-center backdrop-blur-sm hover:border-white/20 transition-all overflow-hidden"
+              style={{
+                backgroundImage: `url(${item.image})`,
+              }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* overlay escuro para contraste */}
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all" />
 
               <div className="relative z-10">
                 <div className="mb-6 h-16 flex items-center">
-                  <h3 className="text-3xl font-semibold text-white">{item.company}</h3>
+                  <h3 className="text-3xl font-semibold text-white">
+                    {item.company}
+                  </h3>
                 </div>
-                <p className="text-white/70 mb-6 leading-relaxed font-light">
+                <p className="text-white/80 mb-6 leading-relaxed font-light">
                   {item.description}
                 </p>
                 <div className="flex items-center text-white group-hover:translate-x-2 transition-transform">
-                  <span className="text-sm font-medium">Ver mais</span>
+                  <span className="text-sm font-medium">Ver case completo</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
 
+              {/* linha animada inferior */}
               <motion.div
                 className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/50 to-transparent"
                 initial={{ scaleX: 0 }}
@@ -83,7 +99,7 @@ export default function CasesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               />
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
