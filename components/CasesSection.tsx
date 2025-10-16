@@ -24,8 +24,8 @@ export default function CasesSection() {
 
   return (
     <section id="cases" className="py-32 bg-black relative overflow-hidden">
-      {/* fundo quadriculado sutil */}
-      <div className="absolute inset-0 opacity-10">
+      {/* 🧩 fundo quadriculado sutil (agora sem interferir no hover/click) */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
@@ -87,7 +87,7 @@ export default function CasesSection() {
           ))}
         </div>
 
-        {/* CTA com hover e animação iguais à SolutionSection */}
+        {/* ✅ CTA com hover e click fixados */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
