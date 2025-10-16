@@ -42,6 +42,7 @@ export default function SolutionSection() {
             className="relative order-2 md:order-1"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
+              {/* círculos concêntricos */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{
@@ -60,14 +61,17 @@ export default function SolutionSection() {
                 }}
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
+
+              {/* centro com ícone */}
               <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
                 <Brain className="w-24 h-24 text-white" />
               </div>
 
+              {/* 🔁 3 bolinhas em movimento simultâneo */}
               {[0, 120, 240].map((angle, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-4 h-4 bg-white rounded-full"
+                  className="absolute w-4 h-4 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.6)]"
                   style={{ top: '50%', left: '50%' }}
                   animate={{
                     x: [
@@ -87,7 +91,7 @@ export default function SolutionSection() {
                     duration: 6,
                     repeat: Infinity,
                     ease: 'linear',
-                    delay: i * 2,
+                    delay: i * 2, // 🔄 defasagem entre as 3 bolinhas
                   }}
                 />
               ))}
