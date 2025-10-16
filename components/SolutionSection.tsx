@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Brain } from 'lucide-react';
+import { BrainCircuit } from 'lucide-react';
 
 export default function SolutionSection() {
   return (
@@ -56,7 +56,7 @@ export default function SolutionSection() {
 
               {/* centro com ícone */}
               <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
-                <Brain className="w-24 h-24 text-white" />
+                <BrainCircuit className="w-24 h-24 text-white" />
               </div>
 
               {/* 🔁 3 bolinhas orbitando continuamente e já iniciando defasadas */}
