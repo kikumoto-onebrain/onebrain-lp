@@ -20,9 +20,12 @@ export default function SolutionSection() {
   ];
 
   return (
-    <section id="solution" className="py-32 bg-neutral-900 relative overflow-hidden">
-      {/* linhas animadas de fundo */}
-      <div className="absolute inset-0">
+    <section
+      id="solution"
+      className="py-32 bg-neutral-900 relative overflow-hidden"
+    >
+      {/* 🔧 fundo animado — agora com pointer-events desativado */}
+      <div className="absolute inset-0 pointer-events-none">
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
@@ -32,9 +35,7 @@ export default function SolutionSection() {
               left: '-100%',
               right: '100%',
             }}
-            animate={{
-              x: ['0%', '200%'],
-            }}
+            animate={{ x: ['0%', '200%'] }}
             transition={{
               duration: 8 + i * 2,
               repeat: Infinity,
@@ -58,12 +59,20 @@ export default function SolutionSection() {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
                 className="absolute inset-0 border border-white/10 rounded-full"
               />
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
               <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
@@ -128,7 +137,10 @@ export default function SolutionSection() {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.3 + index * 0.1,
+                  }}
                   className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10 transition-all"
                 >
                   <benefit.icon className="w-6 h-6 text-white flex-shrink-0 mt-1" />
@@ -137,12 +149,13 @@ export default function SolutionSection() {
               ))}
             </div>
 
+            {/* ✅ botão com mesmo comportamento da PainSection */}
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all"
+              transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all flex items-center justify-center"
             >
               Fale com um especialista
             </motion.a>
