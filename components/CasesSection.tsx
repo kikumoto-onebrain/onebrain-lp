@@ -24,6 +24,7 @@ export default function CasesSection() {
 
   return (
     <section id="cases" className="py-32 bg-black relative overflow-hidden">
+      {/* fundo quadriculado sutil */}
       <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
@@ -35,6 +36,7 @@ export default function CasesSection() {
       </div>
 
       <div className="container mx-auto px-6">
+        {/* título */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,6 +49,7 @@ export default function CasesSection() {
           </h2>
         </motion.div>
 
+        {/* cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {cases.map((item, index) => (
             <motion.div
@@ -84,6 +87,7 @@ export default function CasesSection() {
           ))}
         </div>
 
+        {/* CTA com hover e animação iguais à SolutionSection */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,12 +95,15 @@ export default function CasesSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <a
+          <motion.a
             href="#contact"
-            className="inline-block px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+            className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all"
           >
             Tenha os melhores talentos na sua equipe
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>
