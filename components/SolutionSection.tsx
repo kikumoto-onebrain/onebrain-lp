@@ -20,11 +20,8 @@ export default function SolutionSection() {
   ];
 
   return (
-    <section
-      id="solution"
-      className="py-32 bg-neutral-900 relative overflow-hidden"
-    >
-      {/* 🔧 fundo animado — agora com pointer-events desativado */}
+    <section id="solution" className="py-32 bg-neutral-900 relative overflow-hidden">
+      {/* 🔧 fundo animado — pointer-events desativado para não bloquear clique */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -59,53 +56,17 @@ export default function SolutionSection() {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 border border-white/10 rounded-full"
               />
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
               <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
                 <Brain className="w-24 h-24 text-white" />
               </div>
-
-              {[0, 120, 240].map((angle, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-4 h-4 bg-white rounded-full"
-                  style={{ top: '50%', left: '50%' }}
-                  animate={{
-                    x: [
-                      Math.cos((angle * Math.PI) / 180) * 150,
-                      Math.cos(((angle + 120) * Math.PI) / 180) * 150,
-                      Math.cos(((angle + 240) * Math.PI) / 180) * 150,
-                      Math.cos((angle * Math.PI) / 180) * 150,
-                    ],
-                    y: [
-                      Math.sin((angle * Math.PI) / 180) * 150,
-                      Math.sin(((angle + 120) * Math.PI) / 180) * 150,
-                      Math.sin(((angle + 240) * Math.PI) / 180) * 150,
-                      Math.sin((angle * Math.PI) / 180) * 150,
-                    ],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: 'linear',
-                    delay: i * 2,
-                  }}
-                />
-              ))}
             </div>
           </motion.div>
 
@@ -149,13 +110,13 @@ export default function SolutionSection() {
               ))}
             </div>
 
-            {/* ✅ botão com mesmo comportamento da PainSection */}
+            {/* ✅ botão igual ao da PainSection (hover + tap + tamanho correto) */}
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 250, damping: 18 }}
-              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all flex items-center justify-center"
+              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all"
             >
               Fale com um especialista
             </motion.a>
