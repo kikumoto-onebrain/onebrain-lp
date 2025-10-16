@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { BrainCircuit } from 'lucide-react';
 
 export default function SolutionSection() {
   return (
@@ -41,7 +42,7 @@ export default function SolutionSection() {
             className="relative order-2 md:order-1"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              {/* 🌀 círculos concêntricos mantidos */}
+              {/* 🌀 círculos concêntricos */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
@@ -53,25 +54,18 @@ export default function SolutionSection() {
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
 
-              {/* ✅ Ícone central grande, sem bolinha, com pulsação sutil */}
-              <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
-                <motion.span
-                  className="material-symbols-outlined text-white"
-                  style={{
-                    fontSize: '180px', // 🔥 força o tamanho real do ícone
-                    display: 'block',
-                    lineHeight: 1,
-                  }}
-                  animate={{ scale: [1, 1.08, 1] }}
-                  transition={{
-                    duration: 2.8,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
-                  network_intel_node
-                </motion.span>
-              </div>
+              {/* 🧠 Ícone central do Lucide + pulsação */}
+              <motion.div
+                animate={{ scale: [1, 1.08, 1] }}
+                transition={{
+                  duration: 2.8,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center"
+              >
+                <BrainCircuit className="w-24 h-24 text-white" />
+              </motion.div>
 
               {/* 🔁 3 bolinhas orbitando continuamente e defasadas */}
               {[0, 120, 240].map((angle, i) => (
