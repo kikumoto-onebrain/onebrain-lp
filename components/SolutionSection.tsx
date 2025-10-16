@@ -54,18 +54,19 @@ export default function SolutionSection() {
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
 
-              {/* 🧠 Ícone central do Lucide + pulsação */}
-              <motion.div
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{
-                  duration: 2.8,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center"
-              >
-                <BrainCircuit className="w-24 h-24 text-white" />
-              </motion.div>
+              {/* 🧠 Ícone central pulsando */}
+              <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
+                <motion.div
+                  animate={{ scale: [1, 1.08, 1] }}
+                  transition={{
+                    duration: 2.8,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <BrainCircuit className="w-24 h-24 text-white" />
+                </motion.div>
+              </div>
 
               {/* 🔁 3 bolinhas orbitando continuamente e defasadas */}
               {[0, 120, 240].map((angle, i) => (
