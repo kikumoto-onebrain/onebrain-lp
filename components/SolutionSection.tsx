@@ -1,30 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Brain, Zap, TrendingDown } from 'lucide-react';
+import { Brain } from 'lucide-react';
 
 export default function SolutionSection() {
-  const benefits = [
-    {
-      icon: Zap,
-      title: 'Contrate rápido com o apoio da nossa equipe de hunting',
-    },
-    {
-      icon: TrendingDown,
-      title: 'Reduza o turnover com profissionais mapeados por IA',
-    },
-    {
-      icon: Brain,
-      title: 'Escale sua operação com os melhores talentos do Brasil',
-    },
-  ];
-
   return (
     <section
       id="solution"
       className="py-32 bg-neutral-900 relative overflow-hidden"
     >
-      {/* 🔧 fundo animado — agora com pointer-events desativado */}
+      {/* 🔧 fundo animado — pointer-events desativado */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -109,7 +94,7 @@ export default function SolutionSection() {
             </div>
           </motion.div>
 
-          {/* texto + lista + botão */}
+          {/* texto + botão */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -124,30 +109,10 @@ export default function SolutionSection() {
               Na Onebrain, combinamos experiência humana com IA para mapear, selecionar
               e engajar profissionais com o perfil exato que sua empresa precisa.
             </p>
-            <p className="text-lg text-white/70 mb-10 leading-relaxed font-light">
+            <p className="text-lg text-white/70 mb-8 leading-relaxed font-light">
               A IA analisa competências, histórico e fit cultural, enquanto nossa equipe
               de hunting conduz um processo ágil e assertivo.
             </p>
-
-            {/* benefícios */}
-            <div className="space-y-4 mb-10">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.3 + index * 0.1,
-                  }}
-                  className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10 transition-all"
-                >
-                  <benefit.icon className="w-6 h-6 text-white flex-shrink-0 mt-1" />
-                  <p className="text-white">{benefit.title}</p>
-                </motion.div>
-              ))}
-            </div>
 
             {/* ✅ botão com mesmo comportamento da PainSection */}
             <motion.a
