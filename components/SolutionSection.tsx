@@ -53,10 +53,15 @@ export default function SolutionSection() {
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
 
-              {/* ✅ Ícone do Material Design, grande e pulsante */}
+              {/* ✅ Ícone central grande, sem bolinha, com pulsação sutil */}
               <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
                 <motion.span
-                  className="material-symbols-outlined text-white text-[160px] leading-none"
+                  className="material-symbols-outlined text-white"
+                  style={{
+                    fontSize: '180px', // 🔥 força o tamanho real do ícone
+                    display: 'block',
+                    lineHeight: 1,
+                  }}
                   animate={{ scale: [1, 1.08, 1] }}
                   transition={{
                     duration: 2.8,
