@@ -53,22 +53,22 @@ export default function SolutionSection() {
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
 
-              {/* centro com ícone do Material Design + pulsação sutil */}
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{
-                  duration: 2.8,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-                className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center"
-              >
-                <span className="material-symbols-outlined text-white text-[96px]">
+              {/* ✅ ícone do Material Design com pulsação direta */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.span
+                  className="material-symbols-outlined text-white text-[96px]"
+                  animate={{ scale: [1, 1.08, 1] }}
+                  transition={{
+                    duration: 2.4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                >
                   network_intel_node
-                </span>
-              </motion.div>
+                </motion.span>
+              </div>
 
-              {/* 🔁 3 bolinhas orbitando continuamente e já iniciando defasadas */}
+              {/* 🔁 3 bolinhas orbitando continuamente e defasadas */}
               {[0, 120, 240].map((angle, i) => (
                 <motion.div
                   key={i}
