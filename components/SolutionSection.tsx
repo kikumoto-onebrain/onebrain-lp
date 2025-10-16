@@ -41,7 +41,7 @@ export default function SolutionSection() {
             className="relative order-2 md:order-1"
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              {/* círculos concêntricos */}
+              {/* 🌀 círculos concêntricos mantidos */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
@@ -53,13 +53,13 @@ export default function SolutionSection() {
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
 
-              {/* ✅ ícone do Material Design com pulsação direta */}
+              {/* ✅ Ícone grande e pulsante */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.span
-                  className="material-symbols-outlined text-white text-[96px]"
+                  className="material-symbols-outlined text-white text-[140px]"
                   animate={{ scale: [1, 1.08, 1] }}
                   transition={{
-                    duration: 2.4,
+                    duration: 2.6,
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
@@ -72,10 +72,8 @@ export default function SolutionSection() {
               {[0, 120, 240].map((angle, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-4 h-4 bg-white rounded-full"
+                  className="absolute top-1/2 left-1/2"
                   style={{
-                    top: '50%',
-                    left: '50%',
                     transformOrigin: 'center',
                     rotate: `${angle}deg`,
                   }}
@@ -88,7 +86,9 @@ export default function SolutionSection() {
                 >
                   <div
                     className="absolute w-4 h-4 bg-white rounded-full"
-                    style={{ transform: 'translateX(150px)' }}
+                    style={{
+                      transform: 'translateX(150px)',
+                    }}
                   />
                 </motion.div>
               ))}
