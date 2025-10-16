@@ -21,6 +21,7 @@ export default function SolutionSection() {
 
   return (
     <section id="solution" className="py-32 bg-neutral-900 relative overflow-hidden">
+      {/* linhas animadas de fundo */}
       <div className="absolute inset-0">
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -46,6 +47,7 @@ export default function SolutionSection() {
 
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* círculo animado */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -55,25 +57,13 @@ export default function SolutionSection() {
           >
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <motion.div
-                animate={{
-                  rotate: 360,
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 border border-white/10 rounded-full"
               />
               <motion.div
-                animate={{
-                  rotate: -360,
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
               <div className="absolute inset-16 bg-gradient-to-br from-white/10 to-transparent rounded-full backdrop-blur-xl flex items-center justify-center">
@@ -84,10 +74,7 @@ export default function SolutionSection() {
                 <motion.div
                   key={i}
                   className="absolute w-4 h-4 bg-white rounded-full"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                  }}
+                  style={{ top: '50%', left: '50%' }}
                   animate={{
                     x: [
                       Math.cos((angle * Math.PI) / 180) * 150,
@@ -113,6 +100,7 @@ export default function SolutionSection() {
             </div>
           </motion.div>
 
+          {/* texto + lista + botão */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -132,6 +120,7 @@ export default function SolutionSection() {
               de hunting conduz um processo ágil e assertivo.
             </p>
 
+            {/* benefícios */}
             <div className="space-y-4 mb-10">
               {benefits.map((benefit, index) => (
                 <motion.div
@@ -148,12 +137,15 @@ export default function SolutionSection() {
               ))}
             </div>
 
-            <a
+            {/* botão igual ao da PainSection */}
+            <motion.a
               href="#contact"
-              className="inline-block px-8 py-4 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all flex items-center justify-center"
             >
               Fale com um especialista
-            </a>
+            </motion.a>
           </motion.div>
         </div>
       </div>
