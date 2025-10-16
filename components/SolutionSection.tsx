@@ -45,20 +45,12 @@ export default function SolutionSection() {
               {/* círculos concêntricos */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-0 border border-white/10 rounded-full"
               />
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
                 className="absolute inset-8 border border-white/20 rounded-full"
               />
 
@@ -67,33 +59,29 @@ export default function SolutionSection() {
                 <Brain className="w-24 h-24 text-white" />
               </div>
 
-              {/* 🔁 3 bolinhas em movimento simultâneo */}
-              {[0, 120, 240].map((angle, i) => (
+              {/* 🔁 3 bolinhas orbitando continuamente */}
+              {[0, 120, 240].map((startAngle, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-4 h-4 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.6)]"
+                  className="absolute w-4 h-4 bg-white rounded-full"
                   style={{ top: '50%', left: '50%' }}
                   animate={{
-                    x: [
-                      Math.cos((angle * Math.PI) / 180) * 150,
-                      Math.cos(((angle + 120) * Math.PI) / 180) * 150,
-                      Math.cos(((angle + 240) * Math.PI) / 180) * 150,
-                      Math.cos((angle * Math.PI) / 180) * 150,
-                    ],
-                    y: [
-                      Math.sin((angle * Math.PI) / 180) * 150,
-                      Math.sin(((angle + 120) * Math.PI) / 180) * 150,
-                      Math.sin(((angle + 240) * Math.PI) / 180) * 150,
-                      Math.sin((angle * Math.PI) / 180) * 150,
-                    ],
+                    rotate: [0, 360],
                   }}
                   transition={{
                     duration: 6,
                     repeat: Infinity,
                     ease: 'linear',
-                    delay: i * 2, // 🔄 defasagem entre as 3 bolinhas
+                    delay: i * 2,
                   }}
-                />
+                >
+                  <div
+                    className="absolute w-4 h-4 bg-white rounded-full"
+                    style={{
+                      transform: `translateX(150px) rotate(${startAngle}deg)`,
+                    }}
+                  />
+                </motion.div>
               ))}
             </div>
           </motion.div>
