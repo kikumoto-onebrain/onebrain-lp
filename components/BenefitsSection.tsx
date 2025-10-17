@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Maximize2, Zap, TrendingDown, Target, Users } from 'lucide-react';
+import { Maximize2, Zap, TrendingDown, Target, Users, Gem } from 'lucide-react';
 
 export default function BenefitsSection() {
   const benefits = [
@@ -30,10 +30,19 @@ export default function BenefitsSection() {
       title: 'Menos turnover',
       description: 'IA identifica o match ideal para cada cultura',
     },
+    {
+      icon: Gem,
+      title: 'Rentabilidade',
+      description: 'ROI superior à contratação interna',
+    },
   ];
 
   return (
-    <section id="benefits" className="py-32 bg-gradient-to-br from-neutral-900 via-black to-neutral-900 relative overflow-hidden">
+    <section
+      id="benefits"
+      className="py-32 bg-gradient-to-br from-neutral-900 via-black to-neutral-900 relative overflow-hidden"
+    >
+      {/* ✨ fundo com partículas animadas */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -57,6 +66,7 @@ export default function BenefitsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* título */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +81,8 @@ export default function BenefitsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* grid de benefícios */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -108,19 +119,6 @@ export default function BenefitsSection() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center p-8 border border-white/20 rounded-2xl bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm"
-        >
-          <p className="text-lg text-white/90 font-light">
-            Outsourcing bem estruturado apresenta ROI superior à contratação interna
-            por evitar custos ocultos de turnover
-          </p>
-        </motion.div>
       </div>
     </section>
   );

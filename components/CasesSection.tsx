@@ -8,21 +8,21 @@ export default function CasesSection() {
     {
       company: 'iFood',
       description:
-        'O maior app de delivery do Brasil conta com as soluções da Onebrain desde o 1º dia',
+        'O maior app de delivery do Brasil conta com as soluções da Onebrain desde o 1º dia.',
       image: '/case-ifood.webp',
       link: 'https://onebrain.com.br/cases/ifood/',
     },
     {
       company: 'Petz',
       description:
-        'Com IA e integração total, levamos o e-commerce da Petz a um novo patamar de experiência digital',
+        'Com IA e integração total, levamos o e-commerce da Petz a um novo patamar de experiência digital.',
       image: '/case-petz.webp',
       link: 'https://onebrain.com.br/cases/petz/',
     },
     {
       company: 'Nomad',
       description:
-        'Vencemos os desafios de prazo para entregar um app impecável a uma empresa moderna e internacional',
+        'Vencemos os desafios de prazo para entregar um app impecável a uma empresa moderna e internacional.',
       image: '/case-nomad.webp',
       link: 'https://onebrain.com.br/cases/nomad/',
     },
