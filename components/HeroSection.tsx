@@ -83,7 +83,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black">
         {/* imagem de fundo com opacidade */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
+          className="absolute inset-0 bg-cover bg-center opacity-50"
           style={{ backgroundImage: "url('/outsourcing.webp')" }}
         />
 
