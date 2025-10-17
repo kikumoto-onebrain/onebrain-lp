@@ -85,7 +85,7 @@ export default function HeroSection() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/outsourcing.webp')",
+            backgroundImage: "url('/outsourcing-ti.webp')",
             opacity: 0.65, // ⬅️ ajuste aqui conforme desejar
           }}
         />
