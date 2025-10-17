@@ -5,29 +5,29 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 🔄 calcula opacidade gradual conforme scroll (0 → 1 até 150px)
+  const bgOpacity = Math.min(scrollY / 150, 1);
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-black/80 backdrop-blur-xl border-b border-white/10'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-[background-color,backdrop-filter] duration-700 ease-in-out"
+      style={{
+        backgroundColor: `rgba(0, 0, 0, ${0.2 + bgOpacity * 0.6})`, // começa bem transparente e escurece gradualmente
+      }}
     >
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
+        {/* Logo */}
         <a
           href="#"
           className="flex items-center group transform transition-transform hover:scale-105"
@@ -35,7 +35,7 @@ export default function Header() {
           <Image
             src="/logo-onebrain.svg"
             alt="Onebrain Logo"
-            width={120} 
+            width={120}
             height={34}
             priority
             className="w-auto h-8"
