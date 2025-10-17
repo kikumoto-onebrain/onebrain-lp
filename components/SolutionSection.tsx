@@ -123,7 +123,7 @@ export default function SolutionSection() {
               transition={{ type: 'spring', stiffness: 250, damping: 18 }}
               className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all"
             >
-              Fale com um especialista
+              Contrate com inteligência
             </motion.a>
           </motion.div>
         </div>

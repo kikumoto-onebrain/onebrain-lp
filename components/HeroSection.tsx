@@ -79,9 +79,16 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* fundo com gradiente e canvas */}
+      {/* 🔧 fundo com gradiente + imagem + animação */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black">
-        <canvas ref={canvasRef} className="absolute inset-0 opacity-40" />
+        {/* imagem de fundo com opacidade */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: "url('/outsourcing.webp')" }}
+        />
+
+        {/* animação de pontos e linhas */}
+        <canvas ref={canvasRef} className="absolute inset-0 opacity-50" />
       </div>
 
       {/* conteúdo */}
