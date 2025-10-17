@@ -17,14 +17,19 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 🔧 Define o estilo do fundo do header dinamicamente
+  const headerBg = isMenuOpen
+    ? 'bg-black/90 backdrop-blur-xl'
+    : isScrolled
+    ? 'bg-black/80 backdrop-blur-xl'
+    : 'bg-transparent';
+
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-xl' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
     >
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         {/* 🔹 Logo */}
@@ -67,7 +72,7 @@ export default function Header() {
         {/* 🔹 Botão Mobile */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none z-50 relative"
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -81,7 +86,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 absolute top-full left-0 right-0 px-6 py-8 space-y-6 text-center"
+            className="md:hidden bg-black/95 backdrop-blur-xl absolute top-full left-0 right-0 px-6 py-8 space-y-6 text-center"
           >
             <a
               href="#clients"
