@@ -27,8 +27,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* 🔄 Substituído ícone + texto pelo logo SVG */}
+      <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         <a
           href="#"
           className="flex items-center group transform transition-transform hover:scale-105"
@@ -36,10 +35,10 @@ export default function Header() {
           <Image
             src="/logo-onebrain.svg"
             alt="Onebrain Logo"
-            width={140}
-            height={40}
+            width={120} 
+            height={34}
             priority
-            className="w-auto h-10"
+            className="w-auto h-8"
           />
         </a>
 
