@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Brain } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,9 +28,19 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" className="flex items-center space-x-2 group">
-          <Brain className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
-          <span className="text-2xl font-semibold text-white">Onebrain</span>
+        {/* 🔄 Substituído ícone + texto pelo logo SVG */}
+        <a
+          href="#"
+          className="flex items-center group transform transition-transform hover:scale-105"
+        >
+          <Image
+            src="/logo-onebrain.svg"
+            alt="Onebrain Logo"
+            width={140}
+            height={40}
+            priority
+            className="w-auto h-10"
+          />
         </a>
 
         <nav className="hidden md:flex items-center space-x-8">
