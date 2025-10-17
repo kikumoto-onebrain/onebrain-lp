@@ -88,7 +88,7 @@ export default function HeroSection() {
         />
 
         {/* animação de pontos e linhas */}
-        <canvas ref={canvasRef} className="absolute inset-0 opacity-50" />
+        <canvas ref={canvasRef} className="absolute inset-0 opacity-60" />
       </div>
 
       {/* conteúdo */}
