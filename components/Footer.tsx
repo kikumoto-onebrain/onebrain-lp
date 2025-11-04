@@ -22,7 +22,7 @@ export default function Footer() {
               alt="Selo Landor"
               width={140}
               height={40}
-              className="w-auto h-8 opacity-80"
+              className="w-auto h-12 opacity-100"
               priority
             />
           </div>
