@@ -17,14 +17,23 @@ export default function Footer() {
               className="w-auto h-6 mb-4"
               priority
             />
-            <Image
-              src="/selo-sites.svg"
-              alt="Selo Landor"
-              width={140}
-              height={40}
-              className="w-auto h-12 opacity-100"
-              priority
-            />
+
+            {/* Selo Landor com link */}
+            <a
+              href="https://www.landor.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Image
+                src="/selo-sites.svg"
+                alt="Selo Landor"
+                width={160}
+                height={45}
+                className="w-auto h-12 opacity-100 hover:opacity-90 transition-opacity"
+                priority
+              />
+            </a>
           </div>
 
           {/* Direitos reservados */}
