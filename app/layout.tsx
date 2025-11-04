@@ -9,15 +9,62 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://outsourcing.onebrain.com.br'),
   title: 'Onebrain - Inteligência em Outsourcing de TI',
   description:
     'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+  keywords: [
+    'outsourcing de TI',
+    'recrutamento tech',
+    'tecnologia da informação',
+    'Onebrain',
+    'inteligência artificial',
+    'seleção de profissionais de TI',
+    'outsourcing inteligente',
+    'serviços de TI',
+    'hunting tech',
+    'recrutamento de desenvolvedores',
+  ],
+  icons: {
+    icon: '/favicon-onebrain.svg',
+  },
+  alternates: {
+    canonical: 'https://outsourcing.onebrain.com.br',
+  },
   openGraph: {
     title: 'Onebrain - Inteligência em Outsourcing de TI',
     description:
-      'A inteligência que conecta empresas aos melhores talentos de tecnologia.',
-    type: 'website',
+      'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+    url: 'https://outsourcing.onebrain.com.br',
+    siteName: 'Onebrain',
+    images: [
+      {
+        url: '/thumb-onebrain.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Onebrain - Inteligência em Outsourcing de TI',
+      },
+    ],
     locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Onebrain - Inteligência em Outsourcing de TI',
+    description:
+      'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+    images: ['/thumb-onebrain.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxSnippet: -1,
+      maxImagePreview: 'large',
+      maxVideoPreview: -1,
+    },
   },
 };
 
@@ -29,7 +76,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <head>
-        {/* ✅ Fonte do Material Symbols (Google Icons) */}
+        {/* ✅ Favicon */}
+        <link rel="icon" href="/favicon-onebrain.svg" type="image/svg+xml" />
+
+        {/* ✅ Fonte Material Symbols */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
           rel="stylesheet"
@@ -43,12 +93,18 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Onebrain',
-              description: 'Outsourcing estratégico de TI com IA',
-              url: 'https://onebrain.com.br',
+              description:
+                'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+              url: 'https://outsourcing.onebrain.com.br',
+              logo: 'https://outsounrcing.onebrain.com.br/logo-onebrain.svg',
+              sameAs: [
+                'https://www.linkedin.com/company/onebrain',
+                'https://www.instagram.com/_onebrain',
+              ],
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'Sales',
-                availableLanguage: 'Portuguese',
+                availableLanguage: ['Portuguese', 'English'],
               },
             }),
           }}
