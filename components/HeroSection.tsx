@@ -86,7 +86,7 @@ export default function HeroSection() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/outsourcing-ti.webp')",
-            opacity: 0.4,
+            opacity: 0.40, 
           }}
         />
 
@@ -97,8 +97,8 @@ export default function HeroSection() {
         <canvas ref={canvasRef} className="absolute inset-0 opacity-50" />
       </div>
 
-      {/* conteúdo com espaçamento apenas no mobile */}
-      <div className="relative z-10 container mx-auto px-6 text-center pt-24 md:pt-0">
+      {/* conteúdo */}
+      <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
