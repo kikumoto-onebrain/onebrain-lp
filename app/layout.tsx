@@ -12,18 +12,28 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://outsourcing.onebrain.com.br'),
   title: 'Onebrain - Inteligência em Outsourcing de TI',
   description:
-    'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+    'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
   keywords: [
     'outsourcing de TI',
-    'recrutamento tech',
-    'tecnologia da informação',
-    'Onebrain',
-    'inteligência artificial',
-    'seleção de profissionais de TI',
+    'outsourcing especializado',
     'outsourcing inteligente',
-    'serviços de TI',
-    'hunting tech',
-    'recrutamento de desenvolvedores',
+    'alocação de desenvolvedores',
+    'desenvolvedores sob demanda',
+    'squad as a service',
+    'times de tecnologia sob demanda',
+    'contratação ágil de TI',
+    'recrutamento tech',
+    'recrutamento com IA',
+    'inteligência artificial no recrutamento',
+    'seleção de profissionais de TI',
+    'seleção inteligente de talentos',
+    'engenheiros de software senior',
+    'desenvolvedores senior',
+    'profissionais de TI especializados',
+    'reduzir turnover em TI',
+    'escassez de talentos tech',
+    'contratar desenvolvedores no Brasil',
+    'Onebrain',
   ],
   icons: {
     icon: '/favicon-onebrain.svg',
@@ -34,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Onebrain - Inteligência em Outsourcing de TI',
     description:
-      'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+      'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
     url: 'https://outsourcing.onebrain.com.br',
     siteName: 'Onebrain',
     images: [
@@ -52,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Onebrain - Inteligência em Outsourcing de TI',
     description:
-      'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+      'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
     images: ['/thumb-onebrain.webp'],
   },
   robots: {
@@ -94,7 +104,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'Onebrain',
               description:
-                'Outsourcing estratégico para encontrar, engajar e manter os melhores profissionais de TI do Brasil, com agilidade e precisão.',
+                'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
               url: 'https://outsourcing.onebrain.com.br',
               logo: 'https://outsourcing.onebrain.com.br/logo-onebrain.svg',
               sameAs: [
