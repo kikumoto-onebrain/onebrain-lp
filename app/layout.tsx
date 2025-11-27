@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
+import Script from 'next/script';
 
 const poppins = Poppins({
   weight: ['300', '400', '600'],
@@ -86,16 +87,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <head>
-        {/* ✅ Favicon */}
+        {/* Favicon */}
         <link rel="icon" href="/favicon-onebrain.svg" type="image/svg+xml" />
 
-        {/* ✅ Fonte do Material Symbols */}
+        {/* Fonte do Material Symbols */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
           rel="stylesheet"
         />
 
-        {/* 📊 Dados estruturados JSON-LD */}
+        {/* Dados estruturados JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,7 +121,23 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GT83W4LEVZ"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GT83W4LEVZ');
+          `}
+        </Script>
+
+        {children}
+      </body>
     </html>
   );
 }
