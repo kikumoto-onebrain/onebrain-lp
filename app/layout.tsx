@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   title: 'Onebrain - Inteligência em Outsourcing de TI',
   description:
     'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
+  
+  // Search Console
+  verification: {
+    google: '3xJM3-XLIzjgb-ZmvLsjG314__yi5aWHsHK6ShLbHAM',
+  },
+
   keywords: [
     'outsourcing de TI',
     'outsourcing especializado',
@@ -121,6 +127,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className={poppins.className}>
         {/* Google Analytics */}
         <Script
