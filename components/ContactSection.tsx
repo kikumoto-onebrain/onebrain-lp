@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import emailjs from 'emailjs-com';
 import { Loader2, CheckCircle2 } from 'lucide-react';
+import { sendContactEmail } from '@/lib/emailService';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,22 +14,26 @@ export default function ContactSection() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>(
+    'idle'
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        formData,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
-      );
+      await sendContactEmail(formData);
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        message: '',
+      });
     } catch (error) {
+      console.error('Erro ao enviar e-mail com EmailJS:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -37,12 +41,17 @@ export default function ContactSection() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="contact" className="py-32 bg-gradient-to-b from-black to-neutral-900 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-32 bg-gradient-to-b from-black to-neutral-900 relative overflow-hidden"
+    >
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) => (
           <motion.div
@@ -93,7 +102,10 @@ export default function ContactSection() {
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-white mb-2 font-medium">
+              <label
+                htmlFor="name"
+                className="block text-white mb-2 font-medium"
+              >
                 Nome
               </label>
               <input
@@ -109,7 +121,10 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-white mb-2 font-medium">
+              <label
+                htmlFor="email"
+                className="block text-white mb-2 font-medium"
+              >
                 E-mail
               </label>
               <input
@@ -125,7 +140,10 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="company" className="block text-white mb-2 font-medium">
+              <label
+                htmlFor="company"
+                className="block text-white mb-2 font-medium"
+              >
                 Empresa
               </label>
               <input
@@ -141,7 +159,10 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-white mb-2 font-medium">
+              <label
+                htmlFor="phone"
+                className="block text-white mb-2 font-medium"
+              >
                 Telefone
               </label>
               <input
@@ -157,7 +178,10 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-white mb-2 font-medium">
+              <label
+                htmlFor="message"
+                className="block text-white mb-2 font-medium"
+              >
                 Mensagem
               </label>
               <textarea
