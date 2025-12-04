@@ -76,7 +76,7 @@ export default function Header() {
               <Image src="/brasil.svg" width={22} height={22} alt="Português" />
 
               {/* Flecha ou texto opcional */}
-              <span className="text-white/70 text-sm">EN</span>
+              <span className="text-white/70 text-sm">PT</span>
 
               {/* Bandeira de destino */}
               <Image src="/usa.svg" width={22} height={22} alt="Switch to English" />
