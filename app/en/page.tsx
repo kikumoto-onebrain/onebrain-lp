@@ -7,7 +7,7 @@ import SolutionSectionEn from '@/components/en/SolutionSectionEn';
 import CasesSectionEn from '@/components/en/CasesSectionEn';
 import BenefitsSectionEn from '@/components/en/BenefitsSectionEn';
 import ContactSectionEn from '@/components/en/ContactSectionEn';
-import WhatsAppButtonEn from '@/components/en/WhatsAppButtonEn';
+import WhatsAppButton from '@/components/en/WhatsAppButton';
 import FooterEn from '@/components/en/FooterEn';
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default function HomeEn() {
       <BenefitsSectionEn />
       <ContactSectionEn />
       <FooterEn />
-      <WhatsAppButtonEn />
+      <WhatsAppButton />
     </main>
   );
 }
