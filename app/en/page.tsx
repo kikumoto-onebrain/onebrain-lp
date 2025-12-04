@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ClientsSection from '@/components/ClientsSection';
-import PainSection from '@/components/PainSection';
-import SolutionSection from '@/components/SolutionSection';
-import CasesSection from '@/components/CasesSection';
-import BenefitsSection from '@/components/BenefitsSection';
-import ContactSection from '@/components/ContactSection';
-import WhatsAppButton from '@/components/WhatsAppButton';
-import Footer from '@/components/Footer';
+import HeaderEn from '@/components/en/HeaderEn';
+import HeroSectionEn from '@/components/en/HeroSectionEn';
+import ClientsSectionEn from '@/components/en/ClientsSectionEn';
+import PainSectionEn from '@/components/en/PainSectionEn';
+import SolutionSectionEn from '@/components/en/SolutionSectionEn';
+import CasesSectionEn from '@/components/en/CasesSectionEn';
+import BenefitsSectionEn from '@/components/en/BenefitsSectionEn';
+import ContactSectionEn from '@/components/en/ContactSectionEn';
+import WhatsAppButtonEn from '@/components/en/WhatsAppButtonEn';
+import FooterEn from '@/components/en/FooterEn';
 
 export const metadata: Metadata = {
   title: 'Onebrain – Smart IT Outsourcing',
@@ -62,16 +62,16 @@ export const metadata: Metadata = {
 export default function HomeEn() {
   return (
     <main className="bg-black">
-      <Header />
-      <HeroSection />
-      <PainSection />
-      <ClientsSection />
-      <SolutionSection />
-      <CasesSection />
-      <BenefitsSection />
-      <ContactSection />
-      <Footer />
-      <WhatsAppButton />
+      <HeaderEn />
+      <HeroSectionEn />
+      <PainSectionEn />
+      <ClientsSectionEn />
+      <SolutionSectionEn />
+      <CasesSectionEn />
+      <BenefitsSectionEn />
+      <ContactSectionEn />
+      <FooterEn />
+      <WhatsAppButtonEn />
     </main>
   );
 }
