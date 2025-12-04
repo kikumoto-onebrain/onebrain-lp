@@ -34,17 +34,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Onebrain – Intelligent IT Outsourcing',
+    title: 'Onebrain – Smart IT Outsourcing',
     description:
       'High-performance tech outsourcing powered by AI and human expertise to build and scale world-class engineering teams.',
     url: 'https://outsourcing.onebrain.com.br/en',
     siteName: 'Onebrain',
     images: [
       {
-        url: '/thumb-onebrain.webp',
+        url: '/thumb-onebrain-en.webp',
         width: 1200,
         height: 630,
-        alt: 'Onebrain – Intelligent IT Outsourcing',
+        alt: 'Onebrain – Smart IT Outsourcing',
       },
     ],
     locale: 'en_US',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Onebrain – Intelligent IT Outsourcing',
+    title: 'Onebrain – Smart IT Outsourcing',
     description:
       'High-performance tech outsourcing powered by AI and human expertise to build and scale world-class engineering teams.',
     images: ['/thumb-onebrain.webp'],

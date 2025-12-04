@@ -17,7 +17,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 🔧 Define o estilo do fundo do header dinamicamente
   const headerBg = isMenuOpen
     ? 'bg-black/90 backdrop-blur-xl'
     : isScrolled
@@ -33,10 +32,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         {/* 🔹 Logo */}
-        <a
-          href="#"
-          className="flex items-center group transform transition-transform hover:scale-105"
-        >
+        <a href="/" className="flex items-center group hover:scale-105 transition-transform">
           <Image
             src="/logo-onebrain.svg"
             alt="Onebrain Logo"
@@ -61,12 +57,31 @@ export default function Header() {
           <a href="#benefits" className="text-white/80 hover:text-white transition-colors">
             Benefícios
           </a>
+
+          {/* 🔹 Botão Contato */}
           <a
             href="#contact"
             className="px-6 py-2 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
           >
             Contato
           </a>
+
+          {/* 🔹 Botão de Idioma */}
+          <div className="flex items-center ml-4">
+            <a
+              href="/en"
+              className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
+            >
+              {/* Bandeira do Brasil (idioma atual) */}
+              <Image src="/brasil.svg" width={22} height={22} alt="Português" />
+
+              {/* Flecha ou texto opcional */}
+              <span className="text-white/70 text-sm">EN</span>
+
+              {/* Bandeira de destino */}
+              <Image src="/usa.svg" width={22} height={22} alt="Switch to English" />
+            </a>
+          </div>
         </nav>
 
         {/* 🔹 Botão Mobile */}
@@ -78,7 +93,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* 🔹 Menu Mobile animado */}
+      {/* 🔹 Menu Mobile */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
@@ -116,12 +131,25 @@ export default function Header() {
             >
               Benefícios
             </a>
+
+            {/* Botão Contato */}
             <a
               href="#contact"
               className="inline-block px-6 py-3 bg-white text-black rounded-full hover:bg-white/90 transition-all hover:scale-105 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Contato
+            </a>
+
+            {/* 🔹 Idioma MOBILE */}
+            <a
+              href="/en"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center justify-center gap-3 mt-4 mx-auto px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-all w-fit"
+            >
+              <Image src="/brasil.svg" width={24} height={24} alt="Português" />
+              <span className="text-white/80">English</span>
+              <Image src="/usa.svg" width={24} height={24} alt="mudar idioma" />
             </a>
           </motion.nav>
         )}
