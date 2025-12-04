@@ -11,67 +11,16 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://outsourcing.onebrain.com.br'),
-  title: 'Onebrain - Inteligência em Outsourcing de TI',
-  description:
-    'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
-  
+
   // Search Console
   verification: {
     google: '3xJM3-XLIzjgb-ZmvLsjG314__yi5aWHsHK6ShLbHAM',
   },
 
-  keywords: [
-    'outsourcing de TI',
-    'outsourcing especializado',
-    'outsourcing inteligente',
-    'alocação de desenvolvedores',
-    'desenvolvedores sob demanda',
-    'squad as a service',
-    'times de tecnologia sob demanda',
-    'contratação ágil de TI',
-    'recrutamento tech',
-    'recrutamento com IA',
-    'inteligência artificial no recrutamento',
-    'seleção de profissionais de TI',
-    'seleção inteligente de talentos',
-    'engenheiros de software senior',
-    'desenvolvedores senior',
-    'profissionais de TI especializados',
-    'reduzir turnover em TI',
-    'escassez de talentos tech',
-    'contratar desenvolvedores no Brasil',
-    'Onebrain',
-  ],
   icons: {
     icon: '/favicon-onebrain.svg',
   },
-  alternates: {
-    canonical: 'https://outsourcing.onebrain.com.br',
-  },
-  openGraph: {
-    title: 'Onebrain - Inteligência em Outsourcing de TI',
-    description:
-      'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
-    url: 'https://outsourcing.onebrain.com.br',
-    siteName: 'Onebrain',
-    images: [
-      {
-        url: '/thumb-onebrain.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Onebrain - Inteligência em Outsourcing de TI',
-      },
-    ],
-    locale: 'pt_BR',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Onebrain - Inteligência em Outsourcing de TI',
-    description:
-      'Outsourcing tech de alto nível com IA e expertise humana para encontrar, engajar e manter os melhores profissionais de TI do Brasil com velocidade e precisão.',
-    images: ['/thumb-onebrain.webp'],
-  },
+
   robots: {
     index: true,
     follow: true,
@@ -102,7 +51,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/* Dados estruturados JSON-LD */}
+        {/* Dados estruturados JSON-LD da organização (pode ficar em PT mesmo) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
