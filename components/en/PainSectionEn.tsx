@@ -61,10 +61,10 @@ export default function PainSection() {
           >
             <div className="grid grid-cols-2 gap-6">
               {[
-                { icon: AlertCircle, label: 'Escassez de talentos' },
-                { icon: TrendingUp, label: 'Custos elevados' },
-                { icon: Users, label: 'Alto turnover' },
-                { icon: ClockAlert, label: 'Processos lentos' },
+                { icon: AlertCircle, label: 'Talent shortage' },
+                { icon: TrendingUp, label: 'High costs' },
+                { icon: Users, label: 'High turnover' },
+                { icon: ClockAlert, label: 'Slow processes' },
               ].map((item, index) => (
                 <motion.div
                   key={index}
